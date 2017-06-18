@@ -5,8 +5,22 @@ const http = require('http');
 //response 响应
 var server = http.createServer(function (req, res) {
     // console.log('你来了');
-    res.write('abc'); 
+    // console.log(req.url);
+    // res.write('abc');
+
+    switch (req.url) {
+        case '/1.html':
+            res.write('111');
+            break;
+        case '/2.html':
+            res.write('222');
+            break;
+        default:
+            res.write('404')
+            break;
+    }
+
     res.end();
 })
 
-server.listen(3000);
+server.listen(8080);
